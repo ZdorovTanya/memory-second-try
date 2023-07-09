@@ -3,15 +3,14 @@ import "./App.css";
 import SingleCard from "./component/SingleCard.jsx";
 
 const cardImages = [
-  { "src": "/public/img/front/hm.jpg" },
-  { "src": "/public/img/front/boo.jpg" },
-  { "src": "/public/img/front/chixyaxya-shok.jpg" },
-  { "src": "/public/img/front/chixyaxya-smile.jpg" },
-  { "src": "/public/img/front/chixyaxya.jpg" },
-  { "src": "/public/img/front/crying.jpg" },
-  { "src": "/public/img/front/make-up.png" },
-  { "src": "/public/img/front/sleeping.jpg" },
-
+  { src: "/public/img/front/hm.jpg" },
+  { src: "/public/img/front/boo.jpg" },
+  { src: "/public/img/front/chixyaxya-shok.jpg" },
+  { src: "/public/img/front/chixyaxya-smile.jpg" },
+  { src: "/public/img/front/chixyaxya.jpg" },
+  { src: "/public/img/front/crying.jpg" },
+  { src: "/public/img/front/make-up.png" },
+  { src: "/public/img/front/sleeping.jpg" },
 ];
 
 function App() {
@@ -37,7 +36,11 @@ function App() {
   };
 
   // console.log(cards, turns);
-  
+  // обработка выбора
+  // если value нет,то это первый выбор, а если есть, то 2й 
+  const handleChoice = (card) => {
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  };
 
   return (
     <>
@@ -47,7 +50,11 @@ function App() {
 
         <div className="card-grid">
           {cards.map((card) => (
-           <SingleCard key={card.id} card={card}/>
+            <SingleCard 
+            key={card.id} 
+            card={card} 
+            handleChoice={handleChoice} 
+            />
           ))}
         </div>
       </div>
