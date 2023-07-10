@@ -1,12 +1,11 @@
-.App{
+.App {
   max-width: 900px;
   margin: 50px auto;
 }
 
-
 .btn {
-  background: linear-gradient(to left, #91EAE4, #86A8E7,  #91EAE4);
-  transition: .7s;
+  background: linear-gradient(to left, #91eae4, #86a8e7, #91eae4);
+  transition: 0.7s;
   background-size: 200%;
   padding: 6px 12px;
   border-radius: 40px;
@@ -16,13 +15,27 @@
   font-size: 1em;
 }
 
-.btn:hover{
+.btn:hover {
   background-position: right;
 }
 
-.card-grid{
+.card-grid {
   margin: 40px 0px 40px 0px;
   display: grid;
+  justify-items: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
+}
+
+.cont__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+.cont__row p {
+  padding: 10px;
+  border-radius: 40px;
+  background: linear-gradient(to left, #91eae4, #86a8e7, #91eae4);
 }

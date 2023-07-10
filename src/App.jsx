@@ -18,6 +18,7 @@ function App() {
   const [cards, setCards] = useState([]);
   // количество шагов
   const [turns, setTurns] = useState(0);
+  const [match, setMatch] = useState(0);
 
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
@@ -37,6 +38,7 @@ function App() {
     setCards(shuffleCards);
     // каждый раз начиная игру, вызываем эту функцию
     setTurns(0);
+    setMatch(0);
   };
 
   // console.log(cards, turns);
@@ -57,6 +59,7 @@ function App() {
       setDisabled(true);
       if (choiceOne.src === choiceTwo.src) {
         console.log("match");
+        countMatch();
         setCards((prevCards) => {
           return prevCards.map((card) => {
             // меняем значение в массиве на true с помощью нового массива
@@ -75,6 +78,17 @@ function App() {
     }
   }, [choiceOne, choiceTwo]);
 
+  // счетчик совпадений
+  const countMatch = () => {
+    setMatch((prevMatch) => prevMatch + 1);
+  };
+
+  useEffect(() => {
+    if (match === cardImages.length){
+      alert ("you win");
+    }
+  }, [match]);
+
   // перезапуск и инкремент счетчика
   const resetTurn = () => {
     setChoiceOne(null);
@@ -87,7 +101,9 @@ function App() {
     <>
       <div className="App">
         <h1>MEMERY GAME</h1>
-        <button className="btn" onClick={shuffleCards}>NEW GAME</button>
+        <button className="btn" onClick={shuffleCards}>
+          NEW GAME
+        </button>
 
         <div className="card-grid">
           {cards.map((card) => (
@@ -101,7 +117,10 @@ function App() {
           ))}
         </div>
 
-        <p>TURNS: {turns}</p>
+        <div className="cont__row">
+          <p>TURNS: {turns}</p>
+          <p>MATCH: {match}</p>
+        </div>
       </div>
     </>
   );
