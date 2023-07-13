@@ -20,10 +20,10 @@
 }
 
 .card-grid {
-  margin: 40px 0px 40px 0px;
+  max-width: 430px;
+  margin: 40px auto;
   display: grid;
-  justify-items: center;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 

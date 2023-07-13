@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import SingleCard from "./component/SingleCard.jsx";
+// import Modal from "./component/Modal/Modal.jsx";
 
 const cardImages = [
   { src: "/public/img/front/hm.jpg", matched: false },
@@ -84,8 +85,8 @@ function App() {
   };
 
   useEffect(() => {
-    if (match === cardImages.length){
-      alert ("you win");
+    if (match === cardImages.length) {
+      alert("YOU WON");
     }
   }, [match]);
 

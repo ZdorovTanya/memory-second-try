@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
   padding: 0;
   margin: 0;
@@ -67,15 +71,10 @@ h1, h2,h3, h4, h5, h6{
 
 /* ------------------------- */
 
-body{
-  margin: 0;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  color: #556b92;
+body {
+  @apply text-center text-[#556b92] m-0;
+  font-family: "Poppins", sans-serif;
 }
-
-h1{
-  font-size: 50px;
-  margin-bottom: 20px;
-  
+h1 {
+  @apply text-[50px] mb-5;
 }

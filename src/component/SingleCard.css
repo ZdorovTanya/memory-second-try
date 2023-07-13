@@ -25,14 +25,18 @@
 .flipped .front {
   transform: rotateY(0deg);
   transition-delay: 0.2s;
+  border: 1px solid rgb(112, 103, 103);
+  box-shadow: 0px 5px 15px rgb(82, 106, 136);
 }
 
 .card .back {
   transition: all ease-in 0.2s;
   transition-delay: 0.2s;
+  border: 2px solid rgb(216, 204, 204);
 }
 
 .flipped .back {
   transform: rotateY(90deg);
   transition-delay: 0s;
+  
 }
