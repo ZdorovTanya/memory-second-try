@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import SingleCard from "./component/SingleCard.jsx";
 // import Modal from "./component/Modal/Modal.jsx";
+import "./component/Modal/Modal.css";
 
 const cardImages = [
   { src: "/public/img/front/hm.jpg", matched: false },
@@ -25,6 +26,19 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null);
 
   const [disabled, setDisabled] = useState(false);
+
+  // победа попап
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
 
   // дублируем и перемешиваем карты
   const shuffleCards = () => {
@@ -52,7 +66,7 @@ function App() {
   // автоматическое начало игры
   useEffect(() => {
     shuffleCards();
-  }, []);
+  }, [modal]);
 
   // сравнение двух выбранных карт
   useEffect(() => {
@@ -84,11 +98,11 @@ function App() {
     setMatch((prevMatch) => prevMatch + 1);
   };
 
-  useEffect(() => {
-    if (match === cardImages.length) {
-      alert("YOU WON");
-    }
-  }, [match]);
+  // useEffect(() => {
+  //   if (match === cardImages.length) {
+  //     alert("YOU WON");
+  //   }
+  // }, [match]);
 
   // перезапуск и инкремент счетчика
   const resetTurn = () => {
@@ -123,6 +137,22 @@ function App() {
           <p>MATCH: {match}</p>
         </div>
       </div>
+
+      {match === cardImages.length && (
+        <div className="modal">
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modal-content">
+            <h2>Congratulations!</h2>
+            <p>
+              You found a match for all meme dogs. In order to collect {match}{" "}
+              parkcards you needed {turns} turns.
+            </p>
+            <button className="close-modal" onClick={toggleModal}>
+              x
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
