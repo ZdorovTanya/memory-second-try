@@ -1,41 +1,17 @@
 .App {
-  max-width: 900px;
-  margin: 50px auto;
+  @apply max-w-[900px] mx-auto my-[50px];
 }
-
 .btn {
+  @apply transition-[0.7s] bg-[200%] text-[#556b92] font-semibold cursor-pointer text-[1em] px-3 py-1.5 rounded-[40px] hover:bg-right;
   background: linear-gradient(to left, #91eae4, #86a8e7, #91eae4);
-  transition: 0.7s;
-  background-size: 200%;
-  padding: 6px 12px;
-  border-radius: 40px;
-  color: #556b92;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 1em;
 }
-
-.btn:hover {
-  background-position: right;
-}
-
 .card-grid {
-  max-width: 430px;
-  margin: 40px auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  @apply max-w-[430px] grid grid-cols-[repeat(4,1fr)] gap-2.5 mx-auto my-10;
 }
-
 .cont__row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
+  @apply flex items-center justify-center gap-[50px];
 }
-
 .cont__row p {
-  padding: 10px;
-  border-radius: 40px;
+  @apply p-2.5 rounded-[40px];
   background: linear-gradient(to left, #91eae4, #86a8e7, #91eae4);
 }
